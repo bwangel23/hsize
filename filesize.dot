@@ -1,0 +1,57 @@
+digraph from_human_readable {
+    # 输入类型
+    #  DIGIT 数字
+    #  UNIT  单位，K,M,G,T,P,E,Z
+    #  SPACE 空格
+
+    START [label = "", fixedsize = "false", width = 0, height = 0, shape = none]
+    SF [shape = circle, label = "Failed", fillcolor = "#FF8080", style = filled]
+    S0 [shape = circle, label = "State0", fillcolor = "#FF8080", style = filled]
+    S1 [shape = doublecircle, label = "State1", fillcolor = "#80FF80", style = filled]
+    S2 [shape = doublecircle, label = "State2", fillcolor = "#80FF80", style = filled]
+    S3 [shape = doublecircle, label = "State3", fillcolor = "#80FF80", style = filled]
+
+    comment [label = <
+        <table>
+            <tr>
+                <td bgcolor="#FF8080" border="0">State0</td>
+                <td align="left" border="0">开始状态，接收输入或者输入了空格</td>
+            </tr>
+            <tr>
+                <td bgcolor="#80FF80" border="0">State1</td>
+                <td align="left" border="0">输入了数字</td>
+            </tr>
+            <tr>
+                <td bgcolor="#80FF80" border="0">State2</td>
+                <td align="left" border="0">前面是数字，输入了空格</td>
+            </tr>
+            <tr>
+                <td bgcolor="#80FF80" border="0">State3</td>
+                <td align="left" border="0">S1, S2状态 输入了单位</td>
+            </tr>
+            <tr>
+                <td bgcolor="#FF8080" border="0">Failed</td>
+                <td align="left" border="0">失败状态</td>
+            </tr>
+        </table>
+    >, shape = none]
+
+    START -> S0
+
+    S0 -> S1 [label = "DIGIT"]
+    S0 -> SF [label = "UNIT"]
+    S0 -> S0 [label = "SPACE"]
+
+    S1 -> S1 [label = "DIGIT"]
+    S1 -> S3 [label = "UNIT"]
+    S1 -> S2 [label = "SPACE"]
+
+    S2 -> SF [label = "DIGIT"]
+    S2 -> S3 [label = "UNIT"]
+    S2 -> S2 [label = "SPACE"]
+
+    S3 -> SF [label = "DIGIT"]
+    S3 -> SF [label = "UNIT"]
+    S3 -> S3 [label = "SPACE"]
+
+}
