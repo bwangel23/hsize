@@ -4,7 +4,12 @@
 import unittest, doctest
 
 
-def test_suite():
-    return unittest.TestSuite((
-        doctest.DocTestSuite('filesize')
-    ))
+# def test_suite():
+#     return unittest.TestSuite((
+#         doctest.DocTestSuite('filesize')
+#     ))
+
+unittest.TestSuite((doctest.DocTestSuite('filesize')))
+
+if __name__ == '__main__':
+    unittest.main()
