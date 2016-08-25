@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import unittest, doctest
+import unittest
+import doctest
+import filesize
 
 
-# def test_suite():
-#     return unittest.TestSuite((
-#         doctest.DocTestSuite('filesize')
-#     ))
-
-unittest.TestSuite((doctest.DocTestSuite('filesize')))
+def load_tests(loader, tests, ignore):
+    tests.addTests(doctest.DocTestSuite(filesize))
+    return tests
 
 if __name__ == '__main__':
     unittest.main()
