@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'hsize',
-    version = '0.0.1',
+    version = '0.0.2',
     keywords = ('human', 'size'),
     description = 'Convert the size between human size and bytes on python3',
     license = 'MIT License',
