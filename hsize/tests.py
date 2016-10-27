@@ -3,11 +3,11 @@
 
 import unittest
 import doctest
-import filesize
+import hsize
 
 
 def load_tests(loader, tests, ignore):
-    tests.addTests(doctest.DocTestSuite(filesize))
+    tests.addTests(doctest.DocTestSuite(hsize))
     return tests
 
 if __name__ == '__main__':

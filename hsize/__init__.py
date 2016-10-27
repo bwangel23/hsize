@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from hsize import human2bytes
+from hsize import bytes2human
 
-from filesize.filesize import from_human_readable
-from filesize.filesize import si, traditional
+__all__ = [
+    'human2bytes',
+    'bytes2human'
+]
