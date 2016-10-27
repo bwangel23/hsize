@@ -13,4 +13,6 @@ python3 hsize/tests.py
 
 ## Install
 
-pip install https://github.com/bwangel23/hsize.git
+```
+pip install hsize
+```
